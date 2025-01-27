@@ -10,4 +10,9 @@ for i in a:
         b.append(i)
 print(b)
 
+print([i for i in a if i<5])
 
+n = int(input("Enter a number to compare: "))
+for i in a:
+    if (i<n):
+        print (i)
