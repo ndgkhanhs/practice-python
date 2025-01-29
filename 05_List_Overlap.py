@@ -6,6 +6,7 @@ c = []
 for i in a:
     if (i in b and i not in c):
         c.append(i)
+print (c)
 
 x = [random.randint(1, 100) for _ in range(random.randint(5, 20))]
 y = [random.randint(1, 100) for _ in range(random.randint(5, 20))]
