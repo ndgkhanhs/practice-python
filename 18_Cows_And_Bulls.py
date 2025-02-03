@@ -7,14 +7,13 @@ def sep(x):
     d = x%10
     return [a, b, c, d]
 
-#def CaB(n, x):
 x = random.randint(1000, 9999)
 i = sep(x)
 
 n = int(input("Enter number: "))
 j = sep(n)
 
-
+#def CaB(n, x):
 
 print(x)
 
