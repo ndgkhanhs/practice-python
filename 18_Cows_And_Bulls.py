@@ -7,13 +7,38 @@ def sep(x):
     d = x%10
     return [a, b, c, d]
 
-x = random.randint(1000, 9999)
-i = sep(x)
+def compare(x, n):
+    cows, bulls = 0, 0
 
-n = int(input("Enter number: "))
-j = sep(n)
+    for i in range(4):
+        if x[i] == n[i]:
+            cows += 1
+        elif x[i] in n:
+            bulls += 1
+    
+    return cows, bulls
 
-#def CaB(n, x):
+def CaB():
+    cows = 0
+    bulls = 0
+    x = random.randint(1000, 9999)
+    a = sep(x)
+    while True:
+        n = int(input("Enter a number: "))
+        nlen = str(n)
+        if (len(nlen) != 4):
+            print ("---INVALID INPUT---")
+            continue
+        b = sep(n)
+        cows, bulls = compare(a,b)
+        print (f"Number of cows: {cows}")
+        print (f"Number of bulls: {bulls}")
+        print (a)
+        if cows == 4:
+            print ("You completed the game!!!")
+            break
 
-print(x)
+if __name__ == "__main__":
+    CaB()
+    
 
