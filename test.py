@@ -1,11 +1,21 @@
-import requests
-from bs4 import BeautifulSoup
+def find(ordered_list, element_to_find):
+    start_index = 0
+    end_index = len(ordered_list) - 1
 
-base_url = "https://www.vanityfair.com/style/society/2014/06/monica-lewinsky-humiliation-culture"
-r = requests.get(base_url)
-soup = BeautifulSoup(r.text,"html.parser")
+    while start_index <= end_index:
+        middle_index = (start_index + end_index) // 2
+        middle_element = ordered_list[middle_index]
 
-all_p_cn_text_body = soup.select("div.parbase.cn_text > div.body > p")
+        if middle_element == element_to_find:
+            return True
+        elif middle_element < element_to_find:
+            start_index = middle_index + 1  # Fix: Move start forward
+        else:
+            end_index = middle_index - 1  # Fix: Move end backward
 
-for elem in all_p_cn_text_body[7:]:
-  print(elem.text)
+    return False  # If not found, return False
+
+if __name__ == "__main__":
+    l = list(map(int, input("Enter a list of number: ")))
+    x = int(input("Enter a number to put in list: "))
+    print(find(l, x))

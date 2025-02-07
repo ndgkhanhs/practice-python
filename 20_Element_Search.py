@@ -20,4 +20,23 @@ if __name__ == "__main__":
 #Use binary search
 def binarySearch(a, b):
     b.sort()
+    start = 0
+    end = len(b) - 1
+
+    while start <= end:
+        middle = (start + end) // 2
+        if a < b[middle]:
+            end = middle - 1
+        else:
+            start = middle + 1
+    
+    b.insert(start, a)
+    return b
+
+if __name__ == "__main__":
+    b = list(map(int, input("Enter a list: ").split()))
+    a = int(input("Enter a number to put in list: "))
+    print(binarySearch(a, b))
+
+
     
