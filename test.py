@@ -1,19 +1,11 @@
-import random
+import requests
+from bs4 import BeautifulSoup
 
-a = random.randint(1, 9)
-b = random.randint(0, 9)
-c = random.randint(0, 9)
-d = random.randint(0, 9)
+base_url = "https://www.vanityfair.com/style/society/2014/06/monica-lewinsky-humiliation-culture"
+r = requests.get(base_url)
+soup = BeautifulSoup(r.text,"html.parser")
 
-x = a*1000 + b*100 + c*10 + d 
+all_p_cn_text_body = soup.select("div.parbase.cn_text > div.body > p")
 
-print (x)
-
-n = int(input("Number: "))
-
-one = n//1000
-two = n//100%10
-three = n%100//10
-four = n%10
-
-print (one, two, three, four)
+for elem in all_p_cn_text_body[7:]:
+  print(elem.text)
