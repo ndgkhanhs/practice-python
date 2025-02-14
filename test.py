@@ -1,21 +1,13 @@
-def find(ordered_list, element_to_find):
-    start_index = 0
-    end_index = len(ordered_list) - 1
+#with open('Exercise_22.txt', 'r') as open_file:
+#    line = open_file.readline()
+#    while line:
+#       print(line)
+#        line = open_file.readline()
 
-    while start_index <= end_index:
-        middle_index = (start_index + end_index) // 2
-        middle_element = ordered_list[middle_index]
+student_scores = {'Adama': 100, 'Starbuck': 75, 'Apollo': 80, 'Athena': 85, 'Agathon': 90}
+adama_score = student_scores['Adama']
+adama_score += 100
+print (adama_score)
 
-        if middle_element == element_to_find:
-            return True
-        elif middle_element < element_to_find:
-            start_index = middle_index + 1  # Fix: Move start forward
-        else:
-            end_index = middle_index - 1  # Fix: Move end backward
-
-    return False  # If not found, return False
-
-if __name__ == "__main__":
-    l = list(map(int, input("Enter a list of number: ")))
-    x = int(input("Enter a number to put in list: "))
-    print(find(l, x))
+all_scores = student_scores.keys()
+print(all_scores)
